@@ -45,15 +45,15 @@ These are the calls I made, and the reasoning behind them:
 ## Architecture (conceptual)
 ```
   Curated Markdown knowledge base        Hand-authored playbooks (decision trees)
-  (methodology, per-topic notes)                      |
-                 |                                    v
+  (methodology, per-topic notes)                         |
+                 |                                       v
                  v                          Guided, step-by-step run
         Retrieval (RAG): pull the            (captures notes + evidence)
-        most relevant chunks at query time             |
-                 |                                     v
+        most relevant chunks at query time               |
+                 |                                       v
                  v                            SQLite: runs, steps, findings
-     Grounded prompt (sources + question)              |
-                 |                                     v
+     Grounded prompt (sources + question)                |
+                 |                                       v
                  v                            Report drafter (LLM rewrites
         Advisor (LLM answers from the                 MY captured notes into a
         provided sources, with citations)             HackerOne-shaped report)
