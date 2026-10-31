@@ -44,22 +44,23 @@ These are the calls I made, and the reasoning behind them:
 
 ## Architecture (conceptual)
 ```
-  Curated Markdown knowledge base               Hand-authored playbooks (decision trees)
-  (methodology, per-topic notes)                          |
-                 |                                        v
-                 v                              Guided, step-by-step run
-        Retrieval (RAG): pull the               (captures notes + evidence)
-        most relevant chunks at query time                |
-                 |                                        v
-                 v                              SQLite: runs, steps, findings
-     Grounded prompt (sources + question)                 |
-                 |                                        v
-                 v                              Report drafter (LLM rewrites
-        Advisor (LLM answers from the                 MY captured notes into a
-        provided sources, with citations)             HackerOne-shaped report)
+  Curated Markdown knowledge base            Hand-authored playbooks (decision trees)
+  (methodology, per-topic notes)                       |
+                 |                                     v
+                 v                           Guided, step-by-step run
+  Retrieval (RAG): pull the                  (captures notes + evidence)
+  most relevant chunks at query time                   |
+                 |                                     v
+                 v                           SQLite: runs, steps, findings
+  Grounded prompt (sources + question)                 |
+                 |                                     v
+                 v                           Report drafter (LLM rewrites
+  Advisor (LLM answers from the              MY captured notes into a
+  provided sources, with citations)          HackerOne-shaped report)
 
-        Tool orchestration: launch CLI tools (recon, cracking, etc.) as background jobs,
-        parse their output into in-app findings.
+
+  Tool orchestration: launch CLI tools (recon, cracking, etc.) as background jobs,
+  parse their output into in-app findings.
 ```
 
 ## How the grounding works (RAG)
